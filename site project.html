@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dzair Debt Tracker - تتبع الديون الجزائرية</title>
+    <link rel="stylesheet" href="cridct.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Dzair Debt Tracker</h1>
+            <p class="subtitle">تتبع وإدارة الديون المالية بالدينار الجزائري</p>
+            <div class="auto-save-indicator" id="autoSaveIndicator">
+                <span class="save-icon">💾</span>
+                <span class="save-text">تم الحفظ تلقائياً</span>
+            </div>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="البحث عن مدين بالاسم..." class="search-input">
+                <button class="clear-search" id="clearSearch" title="مسح البحث">❌</button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+
+        <!-- Add Debtor Form -->
+        <div class="form-container">
+            <form id="debtorForm" class="debtor-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="debtorName">اسم المدين</label>
+                        <input type="text" id="debtorName" placeholder="أدخل اسم المدين" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="debtAmount">مبلغ الدين (دج)</label>
+                        <div class="amount-input-container">
+                            <input type="text" id="debtAmount" placeholder="أدخل مبلغ الدين" required class="amount-input">
+                            <span class="currency-symbol">دج</span>
+                        </div>
+                        <div class="amount-display" id="amountDisplay"></div>
+                    </div>
+                </div>
+                
+                <div class="quick-amounts">
+                    <label>اختيار سريع للمبلغ:</label>
+                    <div class="quick-buttons">
+                        <button type="button" class="quick-btn" data-amount="100">100 دج</button>
+                        <button type="button" class="quick-btn" data-amount="500">500 دج</button>
+                        <button type="button" class="quick-btn" data-amount="1000">1,000 دج</button>
+                        <button type="button" class="quick-btn" data-amount="2000">2,000 دج</button>
+                        <button type="button" class="quick-btn" data-amount="5000">5,000 دج</button>
+                        <button type="button" class="quick-btn" data-amount="10000">10,000 دج</button> 
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span class="btn-icon">👤</span>
+                    إضافة مدين
+                </button>
+            </form>
+        </div>
+
+        <!-- Total Debt Display -->
+        <div class="total-debt">
+            <p>إجمالي الديون المستحقة: <span id="totalAmount" class="total-amount">0 دج</span></p>
+            <p class="debt-count">عدد المدينين: <span id="debtorCount" class="count-number">0</span></p>
+        </div>
+
+        <!-- Data Management Controls -->
+        <div class="data-controls">
+            <button class="control-button export-btn" onclick="debtTracker.exportData()">
+                📤 تصدير البيانات
+            </button>
+            <label class="control-button import-btn">
+                📥 استيراد البيانات
+                <input type="file" id="importFile" accept=".json" style="display: none;" onchange="debtTracker.importData(event)">
+            </label>
+            <button class="control-button clear-btn" onclick="debtTracker.clearAllData()">
+                🗑️ مسح جميع البيانات
+            </button>
+        </div>
+
+        <!-- No Debtors Message -->
+        <div class="no-debtors" id="noDebtors">
+            <p>لم يتم إضافة أي مدين بعد</p>
+        </div>
+
+        <!-- Debtors List -->
+        <div id="debtorsList" class="debtors-list">
+        </div>
+    </div>
+
+    <script src="class DebtTracker {.js"></script>
+</body>
+</html>
