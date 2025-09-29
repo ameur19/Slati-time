@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أوقات الصلاة - Prayer Times</title>
+    <link rel="stylesheet" href="slati.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Loading Screen -->
+        <div id="loading" class="loading-screen">
+            <div class="spinner"></div>
+            <p id="loading-text">جاري تحميل أوقات الصلاة...</p>
+        </div>
+
+        <!-- Main Content -->
+        <div id="main-content" class="main-content hidden">
+            <!-- Header -->
+            <header class="header">
+                <h1 class="title">أوقات الصلاة</h1>
+                
+                <!-- Location Info -->
+                <div class="location-info">
+                    <div class="location-display">
+                        <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span id="location-text">الرياض, المملكة العربية السعودية</span>
+                    </div>
+                    <button id="location-btn" class="location-btn hidden">
+                        <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        تحديد موقعي
+                    </button>
+                </div>
+
+                <!-- Error Message -->
+                <div id="location-error" class="error-message hidden">
+                    <p id="error-text">تم رفض الوصول للموقع - يتم عرض أوقات الرياض كافتراضي</p>
+                </div>
+
+                <!-- Current Time & Date -->
+                <div class="current-time-card">
+                    <div class="time-display">
+                        <svg class="clock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12,6 12,12 16,14"></polyline>
+                        </svg>
+                        <span id="current-time">00:00:00</span>
+                    </div>
+                    <div class="date-display">
+                        <svg class="calendar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span id="current-date"></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Next Prayer Countdown -->
+            <div id="next-prayer" class="next-prayer-card hidden">
+                <div class="next-prayer-content">
+                    <h2>الصلاة القادمة</h2>
+                    <h3 id="next-prayer-name">الفجر</h3>
+                    <p>في تمام الساعة <span id="next-prayer-time">04:45 ص</span></p>
+                    <div class="countdown-card">
+                        <p class="countdown-label">الوقت المتبقي</p>
+                        <p id="countdown-timer" class="countdown-timer">00:00:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prayer Times Grid -->
+            <div id="prayer-times-grid" class="prayer-times-grid">
+                <div class="prayer-card" data-prayer="Fajr">
+                    <h3>الفجر</h3>
+                    <div class="prayer-time">04:45 ص</div>
+                </div>
+                <div class="prayer-card" data-prayer="Dhuhr">
+                    <h3>الظهر</h3>
+                    <div class="prayer-time">12:10 م</div>
+                </div>
+                <div class="prayer-card" data-prayer="Asr">
+                    <h3>العصر</h3>
+                    <div class="prayer-time">03:30 م</div>
+                </div>
+                <div class="prayer-card" data-prayer="Maghrib">
+                    <h3>المغرب</h3>
+                    <div class="prayer-time">06:45 م</div>
+                </div>
+                <div class="prayer-card" data-prayer="Isha">
+                    <h3>العشاء</h3>
+                    <div class="prayer-time">08:15 م</div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p class="quran-verse">
+                    وَأَقِمِ الصَّلَاةَ طَرَفَيِ النَّهَارِ وَزُلَفًا مِّنَ اللَّيْلِ ۚ إِنَّ الْحَسَنَاتِ يُذْهِبْنَ السَّيِّئَاتِ
+                </p>
+                <p class="verse-reference">سورة هود - الآية 114</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="slati.js"></script>
+</body>
+</html>
